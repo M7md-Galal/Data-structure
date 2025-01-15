@@ -1,0 +1,3 @@
+﻿  Stack.cpp
+D:\DSA Implementation\Stack\Stack\Stack\Stack.cpp(65,25): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Stack.vcxproj -> D:\DSA Implementation\Stack\Stack\x64\Debug\Stack.exe
