@@ -1,0 +1,3 @@
+D:/Clion/Stack/Stack-Array/cmake-build-debug/CMakeFiles/Stack_Array.dir
+D:/Clion/Stack/Stack-Array/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Clion/Stack/Stack-Array/cmake-build-debug/CMakeFiles/rebuild_cache.dir
