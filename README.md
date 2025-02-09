@@ -11,8 +11,8 @@ This repository contains efficient implementations of fundamental **data structu
 ---
 
 ## 📂 Supported Data Structures
-✔️ **Linked List** → [LinkedList.cpp](./LinkedList.cpp)  
-✔️ **Stack** → [Stack.cpp](./Stack.cpp)  
+✔️ **Linked List** → [LinkedList.cpp](./Singly-Linkedlist)  
+✔️ **Stack** → [Stack.cpp](./Stack)  
 ✔️ **Queue** → [Queue.cpp](./Queue.cpp)  
 ✔️ **Binary Tree** → [BinaryTree.cpp](./BinaryTree.cpp)  
 🚧 **Graph** → *Coming soon...*
