@@ -8,13 +8,6 @@
 Welcome to **Data Structures Implementation in C++**!  
 This repository contains efficient implementations of fundamental **data structures** in **C++**, with examples demonstrating their usage in competitive programming and system development.
 
-## 📖 Table of Contents
-- [📂 Supported Data Structures](#-supported-data-structures)
-- [⚙️ Requirements](#️-requirements)
-- [🚀 How to Use](#-how-to-use)
-- [🤝 Contribution](#-contribution)
-- [📜 License](#-license)
-
 ---
 
 ## 📂 Supported Data Structures
