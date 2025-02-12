@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Clion/Stack/Stack-Array/cmake-build-debug",
-		"source" : "D:/Clion/Stack/Stack-Array"
+		"build" : "D:/LocalDS/Stack/Stack-Array/cmake-build-debug",
+		"source" : "D:/LocalDS/Stack/Stack-Array"
 	},
 	"version" : 
 	{

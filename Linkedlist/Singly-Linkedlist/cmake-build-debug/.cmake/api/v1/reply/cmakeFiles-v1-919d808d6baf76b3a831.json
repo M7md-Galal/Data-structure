@@ -802,8 +802,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/Clion/Stack/Stack-Array/cmake-build-debug",
-		"source" : "D:/Clion/Stack/Stack-Array"
+		"build" : "D:/LocalDS/Linkedlist/Singly-Linkedlist/cmake-build-debug",
+		"source" : "D:/LocalDS/Linkedlist/Singly-Linkedlist"
 	},
 	"version" : 
 	{

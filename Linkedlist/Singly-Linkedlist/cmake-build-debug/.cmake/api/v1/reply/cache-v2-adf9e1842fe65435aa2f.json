@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/Clion/Stack/Stack-Array/cmake-build-debug"
+			"value" : "d:/LocalDS/Linkedlist/Singly-Linkedlist/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/Clion/Stack/Stack-Array/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/LocalDS/Linkedlist/Singly-Linkedlist/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/Clion/Stack/Stack-Array"
+			"value" : "D:/LocalDS/Linkedlist/Singly-Linkedlist"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/Stack_Array"
+			"value" : "C:/Program Files (x86)/Singly_Linkedlist"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -875,7 +875,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Stack_Array"
+			"value" : "Singly_Linkedlist"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1270,7 +1270,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Stack_Array_BINARY_DIR",
+			"name" : "Singly_Linkedlist_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1279,10 +1279,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/Clion/Stack/Stack-Array/cmake-build-debug"
+			"value" : "D:/LocalDS/Linkedlist/Singly-Linkedlist/cmake-build-debug"
 		},
 		{
-			"name" : "Stack_Array_IS_TOP_LEVEL",
+			"name" : "Singly_Linkedlist_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1294,7 +1294,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Stack_Array_SOURCE_DIR",
+			"name" : "Singly_Linkedlist_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1303,7 +1303,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/Clion/Stack/Stack-Array"
+			"value" : "D:/LocalDS/Linkedlist/Singly-Linkedlist"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
