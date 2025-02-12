@@ -1,125 +1,201 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
+template<typename T>
 class Node {
 public:
-    T data;
-    Node* next;
-    Node* prev;
-
-    Node(T value) : data(value), next(nullptr), prev(nullptr) {}
+    T Data;
+    Node* Next;
+    Node* Prev;
 };
 
-template <typename T>
+template<typename T>
 class DoublyLinkedList {
-private:
-    Node<T>* head;
-    Node<T>* tail;
-
 public:
-    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+    Node<T>* Head;
+    Node<T>* Tail;
 
-    // Add a node at the end
-    void append(T value) {
-        Node<T>* newNode = new Node<T>(value);
-        if (!head) {
-            head = tail = newNode;
+    DoublyLinkedList() {
+        Head = nullptr;
+        Tail = nullptr;
+    }
+
+    // Check if the list is empty
+    bool isEmpty() {
+        return Head == nullptr;
+    }
+
+    // Insert a new node at the front of the list
+    void insert_front(T item) {
+        Node<T>* newNode = new Node<T>;
+        newNode->Data = item;
+        newNode->Prev = nullptr;
+        newNode->Next = Head;
+
+        if (isEmpty()) {
+            Tail = newNode;
         } else {
-            tail->next = newNode;
-            newNode->prev = tail;
-            tail = newNode;
+            Head->Prev = newNode;
+        }
+
+        Head = newNode;
+    }
+
+    // Insert a new node at the back of the list
+    void insert_back(T item) {
+        Node<T>* newNode = new Node<T>;
+        newNode->Data = item;
+        newNode->Next = nullptr;
+
+        if (isEmpty()) {
+            newNode->Prev = nullptr;
+            Head = Tail = newNode;
+        } else {
+            newNode->Prev = Tail;
+            Tail->Next = newNode;
+            Tail = newNode;
         }
     }
 
-    // Add a node at the beginning
-    void prepend(T value) {
-        Node<T>* newNode = new Node<T>(value);
-        if (!head) {
-            head = tail = newNode;
-        } else {
-            newNode->next = head;
-            head->prev = newNode;
-            head = newNode;
+    // Insert after a specific item
+    void insert_after(T index, T item) {
+        Node<T>* Temp = Head;
+        while (Temp != nullptr && Temp->Data != index) {
+            Temp = Temp->Next;
         }
-    }
 
-    // Delete a node by value
-    void deleteByValue(T value) {
-        Node<T>* temp = head;
-        while (temp) {
-            if (temp->data == value) {
-                if (temp->prev) {
-                    temp->prev->next = temp->next;
-                } else {
-                    head = temp->next;  // Moving head if node to delete is head
-                }
+        if (Temp != nullptr) {
+            Node<T>* newNode = new Node<T>;
+            newNode->Data = item;
+            newNode->Next = Temp->Next;
+            newNode->Prev = Temp;
 
-                if (temp->next) {
-                    temp->next->prev = temp->prev;
-                } else {
-                    tail = temp->prev;  // Moving tail if node to delete is tail
-                }
-
-                delete temp;
-                return;
+            if (Temp->Next != nullptr) {
+                Temp->Next->Prev = newNode;
             }
-            temp = temp->next;
+            Temp->Next = newNode;
+
+            if (Temp == Tail) {
+                Tail = newNode;
+            }
+        } else {
+            cout << "Item not found!" << endl;
         }
-        cout << "Value not found!" << endl;
     }
 
-    // Display the list from the head to the tail
-    void displayForward() const {
-        Node<T>* temp = head;
-        while (temp) {
-            cout << temp->data << " <-> ";
-            temp = temp->next;
+    // Delete an item from the list
+    void Delete_item(T item) {
+        if (isEmpty()) {
+            cout << "The list is empty!" << endl;
+            return;
         }
-        cout << "NULL" << endl;
+
+        Node<T>* Temp = Head;
+        while (Temp != nullptr && Temp->Data != item) {
+            Temp = Temp->Next;
+        }
+
+        if (Temp != nullptr) {
+            if (Temp == Head) {
+                Head = Temp->Next;
+                if (Head != nullptr) {
+                    Head->Prev = nullptr;
+                }
+            } else {
+                Temp->Prev->Next = Temp->Next;
+                if (Temp->Next != nullptr) {
+                    Temp->Next->Prev = Temp->Prev;
+                }
+            }
+
+            if (Temp == Tail) {
+                Tail = Temp->Prev;
+            }
+
+            delete Temp;
+        } else {
+            cout << "Item not found!" << endl;
+        }
     }
 
-    // Display the list from the tail to the head
-    void displayBackward() const {
-        Node<T>* temp = tail;
-        while (temp) {
-            cout << temp->data << " <-> ";
-            temp = temp->prev;
+    // Display all items in the list from head to tail
+    void Display() {
+        Node<T>* Temp = Head;
+        cout << "List: ";
+        while (Temp != nullptr) {
+            cout << Temp->Data << " ";
+            Temp = Temp->Next;
         }
-        cout << "NULL" << endl;
+        cout << endl;
     }
 
-    // Destructor to delete the list and free memory
-    ~DoublyLinkedList() {
-        Node<T>* temp = head;
-        while (temp) {
-            Node<T>* nextNode = temp->next;
-            delete temp;
-            temp = nextNode;
+    // Display all items in the list from tail to head
+    void Display_reverse() {
+        Node<T>* Temp = Tail;
+        cout << "List (reverse): ";
+        while (Temp != nullptr) {
+            cout << Temp->Data << " ";
+            Temp = Temp->Prev;
         }
+        cout << endl;
+    }
+
+    // Search for an item in the list
+    bool Search(T item) {
+        Node<T>* Temp = Head;
+        while (Temp != nullptr) {
+            if (Temp->Data == item) {
+                return true;
+            }
+            Temp = Temp->Next;
+        }
+        return false;
     }
 };
 
 int main() {
-    // Create a doubly linked list of integers
-    DoublyLinkedList<int> list;
+    DoublyLinkedList<int> list;  // Create a doubly linked list of integers
 
-    list.append(10);
-    list.append(20);
-    list.append(30);
-    list.prepend(5);
+    // Insert items at the front
+    list.insert_front(50);
+    list.insert_front(40);
+    list.insert_front(30);
+    list.insert_front(20);
+    list.insert_front(10);
 
-    cout << "Forward display: ";
-    list.displayForward();
+    cout << "Items inserted at the front: ";
+    list.Display();  // Display the list after inserting at the front
+    cout << endl;
 
-    cout << "Backward display: ";
-    list.displayBackward();
+    // Insert items at the back
+    list.insert_back(60);
+    list.insert_back(70);
 
-    list.deleteByValue(20);
+    cout << "Items inserted at the back: ";
+    list.Display();  // Display the list after inserting at the back
+    cout << endl;
 
-    cout << "After deletion of 20:" << endl;
-    cout << "Forward display: ";
-    list.displayForward();
+    // Insert an item after a specific item (e.g., after 40)
+    list.insert_after(40, 45);
+    cout << "Items after inserting 45 after 40: ";
+    list.Display();  // Display the list after insertion
+    cout << endl;
+
+    // Delete an item
+    list.Delete_item(30);
+    cout << "Items after deleting 30: ";
+    list.Display();  // Display the list after deletion
+    cout << endl;
+
+    // Display the list in reverse order
+    list.Display_reverse();  // Display the list in reverse order
+
+    // Search for an item in the list
+    if (list.Search(45)) {
+        cout << "\nThe number 45 is found in the list!" << endl;
+    } else {
+        cout << "\nThe number 45 is not found in the list!" << endl;
+    }
 
     return 0;
 }
