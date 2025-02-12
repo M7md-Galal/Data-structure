@@ -1,0 +1,3 @@
+D:/LocalDS/Linkedlists/Doubly-Linkedlist/cmake-build-debug/CMakeFiles/Doubly_Linkedlist.dir
+D:/LocalDS/Linkedlists/Doubly-Linkedlist/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/LocalDS/Linkedlists/Doubly-Linkedlist/cmake-build-debug/CMakeFiles/rebuild_cache.dir
