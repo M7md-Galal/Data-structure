@@ -13,11 +13,9 @@ template<typename T>
 class DoublyLinkedList {
 public:
     Node<T>* Head;
-    Node<T>* Tail;
 
     DoublyLinkedList() {
         Head = nullptr;
-        Tail = nullptr;
     }
 
     // Check if the list is empty
@@ -32,9 +30,7 @@ public:
         newNode->Prev = nullptr;
         newNode->Next = Head;
 
-        if (isEmpty()) {
-            Tail = newNode;
-        } else {
+        if (Head != nullptr) {
             Head->Prev = newNode;
         }
 
@@ -49,11 +45,14 @@ public:
 
         if (isEmpty()) {
             newNode->Prev = nullptr;
-            Head = Tail = newNode;
+            Head = newNode;
         } else {
-            newNode->Prev = Tail;
-            Tail->Next = newNode;
-            Tail = newNode;
+            Node<T>* Temp = Head;
+            while (Temp->Next != nullptr) {
+                Temp = Temp->Next;
+            }
+            Temp->Next = newNode;
+            newNode->Prev = Temp;
         }
     }
 
@@ -74,10 +73,6 @@ public:
                 Temp->Next->Prev = newNode;
             }
             Temp->Next = newNode;
-
-            if (Temp == Tail) {
-                Tail = newNode;
-            }
         } else {
             cout << "Item not found!" << endl;
         }
@@ -107,11 +102,6 @@ public:
                     Temp->Next->Prev = Temp->Prev;
                 }
             }
-
-            if (Temp == Tail) {
-                Tail = Temp->Prev;
-            }
-
             delete Temp;
         } else {
             cout << "Item not found!" << endl;
@@ -129,9 +119,18 @@ public:
         cout << endl;
     }
 
-    // Display all items in the list from tail to head
+    // Display all items in the list from tail to head (reverse order)
     void Display_reverse() {
-        Node<T>* Temp = Tail;
+        if (isEmpty()) {
+            cout << "The list is empty!" << endl;
+            return;
+        }
+
+        Node<T>* Temp = Head;
+        while (Temp->Next != nullptr) {
+            Temp = Temp->Next;
+        }
+
         cout << "List (reverse): ";
         while (Temp != nullptr) {
             cout << Temp->Data << " ";
